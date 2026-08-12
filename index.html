@@ -56,12 +56,12 @@
         let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
         let tasks = savedTasks.map(function(task) {
-            return {
-                text: task.text || "",
-                dueDate: task.dueDate || "",
-                completed: task.completed === true
-            };
-        });
+    return {
+        text: task.text || "",
+        dueDate: task.dueDate || "",
+        completed: task.completed === true
+    };
+});
 
         let currentFilter = "all";
         let searchText = "";
