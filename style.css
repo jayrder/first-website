@@ -1,4 +1,3 @@
-```css
 body {
     margin: 0;
     background: #eef2f7;
@@ -18,20 +17,46 @@ body {
 h1 {
     text-align: center;
     color: #1f2937;
+    margin-top: 0;
 }
+
+
+/* Task input area */
 
 .task-input {
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
-input {
+.task-input input[type="text"] {
     flex: 1;
+}
+
+.task-input input[type="date"] {
+    width: 150px;
+    box-sizing: border-box;
+}
+
+
+/* General inputs */
+
+input {
     padding: 12px;
     font-size: 16px;
     border: 1px solid #d1d5db;
     border-radius: 8px;
+    box-sizing: border-box;
 }
+
+input:focus {
+    outline: none;
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15);
+}
+
+
+/* Buttons */
 
 button {
     background: #7c3aed;
@@ -40,37 +65,34 @@ button {
     padding: 12px 18px;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 button:hover {
-    background: #1d4ed8;
+    background: #6d28d9;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 25px;
-}
 
-li {
-    background: #f3f4f6;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-}
+/* Task counter */
 
-li.completed {
-    text-decoration: line-through;
-    color: #9ca3af;
-}
-```
-```css
 #taskCounter {
     color: #6b7280;
     text-align: center;
     margin: 15px 0;
 }
+
+
+/* Search */
+
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 15px;
+    font-size: 16px;
+}
+
+
+/* Filters */
 
 .filters {
     display: flex;
@@ -90,42 +112,76 @@ li.completed {
     background: #d1d5db;
 }
 
+
+/* Task list */
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
 li {
+    background: #f3f4f6;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
 }
 
-li span {
+
+/* Task content */
+
+.task-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
+
+li span {
+    cursor: pointer;
+    color: #1f2937;
+}
+
+li small {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* Completed tasks */
+
+li.completed span {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+
+/* Remove button */
 
 li button {
     background: #ef4444;
     padding: 7px 12px;
     font-size: 13px;
+    flex-shrink: 0;
 }
 
 li button:hover {
     background: #dc2626;
 }
 
-```css id="5b6j2m"
-#searchInput {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px;
-    margin: 10px 0 15px;
-    font-size: 16px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-}
+
+/* Mobile layout */
 
 @media (max-width: 600px) {
 
     .app {
         width: auto;
+        max-width: none;
         margin: 20px 10px;
         padding: 20px;
     }
@@ -136,12 +192,13 @@ li button:hover {
 
     .task-input {
         flex-direction: column;
+        align-items: stretch;
     }
 
-    .task-input input,
+    .task-input input[type="text"],
+    .task-input input[type="date"],
     .task-input button {
         width: 100%;
-        box-sizing: border-box;
     }
 
     .filters {
@@ -155,8 +212,13 @@ li button:hover {
     li {
         align-items: flex-start;
     }
+    li.overdue {
+        border-left: 5px solid #ef4444;
+        background: #fef2f2;
+    }
+    
+    li.overdue small {
+        color: #dc2626;
+        font-weight: bold;
+    }
 }
-```
-
-
-```
