@@ -178,27 +178,34 @@
 
 
                 // Display due date.
+               
                 if (task.dueDate) {
 
-                    const dateText = document.createElement("small");
+const dateText = document.createElement("small");
 
-                    if (isOverdue(task)) {
+const today = new Date();
+const year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, "0");
+const day = String(today.getDate()).padStart(2, "0");
 
-                        dateText.textContent =
-                            "OVERDUE — Due: " + task.dueDate;
+const todayString = `${year}-${month}-${day}`;
 
-                        taskElement.classList.add("overdue");
+if (task.dueDate < todayString && !task.completed) {
 
-                    } else {
+    dateText.textContent = "OVERDUE — Due: " + task.dueDate;
 
-                        dateText.textContent =
-                            "Due: " + task.dueDate;
+    taskElement.classList.add("overdue");
 
-                    }
+} else {
 
-                    taskContent.appendChild(dateText);
+    dateText.textContent = "Due: " + task.dueDate;
 
-                }
+}
+
+taskContent.appendChild(dateText);
+}
+               
+                
 
 
                 taskContent.appendChild(taskText);

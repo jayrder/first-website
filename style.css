@@ -222,3 +222,12 @@ li button:hover {
         font-weight: bold;
     }
 }
+li.overdue {
+    border-left: 5px solid #ef4444;
+    background: #fef2f2;
+}
+
+li.overdue small {
+    color: #dc2626;
+    font-weight: bold;
+}
